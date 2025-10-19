@@ -403,7 +403,18 @@
     <div class="overlay" id="overlay"></div>
 
     <!-- Nhạc nền  -->
-    <audio id="player" src="https://drive.google.com/open?id=1cNoop1vZDdNcX_lGfH5v3u-B2Hrl91-x" controls loop></audio>
+    <audio id="player" src="https://drive.google.com/uc?export=download&id=1cNoop1vZDnBcX_lGfH5v3u-B2Hrl91-x" style="display: none;"></audio>
+
+<script>
+  document.addEventListener("click", function() {
+    var audio = document.getElementById("player");
+    audio.play().catch(function(error) {
+      console.log("Lỗi phát âm thanh: ", error);
+    });
+    // Loại bỏ sự kiện sau khi phát lần đầu để tránh lặp lại
+    document.removeEventListener("click", arguments.callee);
+  });
+</script>
     
 	<script>
         //Sửa ảnh và lời nhắn ở đây
@@ -561,6 +572,7 @@
 </body>
 
 </html>
+
 
 
 
