@@ -405,6 +405,16 @@
     <!-- Nhạc nền  -->
     <audio id="player" src="https://drive.google.com/uc?export=download&id=1cNoop1vZDnBcX_lGfH5v3u-B2Hrl91-x" style="display: none;"></audio>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var audio = document.getElementById("player");
+    audio.play().catch(function(error) {
+      // Xử lý lỗi nếu trình duyệt chặn tự động phát (cần tương tác người dùng)
+      console.log("Tự động phát bị chặn: ", error);
+    });
+  });
+</script>
+
     <script>
         //Sửa ảnh và lời nhắn ở đây
         const messages = [
@@ -561,6 +571,7 @@
 </body>
 
 </html>
+
 
 
 
