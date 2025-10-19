@@ -403,18 +403,19 @@
     <div class="overlay" id="overlay"></div>
 
     <!-- Nhạc nền  -->
-    <audio id="player" src="https://drive.google.com/uc?export=download&id=1cNoop1vZDnBcX_lGfH5v3u-B2Hrl91-x" style="display: none;"></audio>
+    <audio id="player" src="https://www.dropbox.com/scl/fi/z5ldgpoatbjocf6nti7bc/a1.mp3?rlkey=67nraf4ql07bw4ed9tf8bpd1l&st=e5skzrzx&raw=1" preload="auto"></audio>
 
-<script>
-  document.addEventListener("click", function() {
-    var audio = document.getElementById("player");
-    audio.play().catch(function(error) {
-      console.log("Lỗi phát âm thanh: ", error);
+  <script>
+    document.addEventListener("click", function playAudio() {
+      var audio = document.getElementById("player");
+      audio.play().then(() => {
+        console.log("Đã phát nhạc!");
+      }).catch(error => {
+        console.log("Lỗi phát nhạc:", error);
+      });
+      document.removeEventListener("click", playAudio);
     });
-    // Loại bỏ sự kiện sau khi phát lần đầu để tránh lặp lại
-    document.removeEventListener("click", arguments.callee);
-  });
-</script>
+  </script>
     
 	<script>
         //Sửa ảnh và lời nhắn ở đây
@@ -572,6 +573,7 @@
 </body>
 
 </html>
+
 
 
 
